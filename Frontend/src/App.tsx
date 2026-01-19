@@ -1,5 +1,11 @@
-const App = () => {
-  return <button className="btn btn-primary">DaisyUI Working 🌼</button>;
-}
+import CreateRoom from "./Components/CreateRoom";
 
-export default App
+const App = () => {
+  return (
+    <>
+      <CreateRoom />
+    </>
+  );
+};
+
+export default App;

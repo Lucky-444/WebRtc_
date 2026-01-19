@@ -3,9 +3,12 @@ import { createContext } from "react";
 
 const wsServer = "http://localhost:8080";
 
-const socketContext = createContext<any | null>(null);
+export const socketContext = createContext<any | null>(null);
 
-const socket = SocketIoClient(wsServer);
+const socket = SocketIoClient(wsServer, {
+  withCredentials: false,
+  transports: ["polling", "websocket"],
+});;
 
 interface props {
   children: React.ReactNode;
