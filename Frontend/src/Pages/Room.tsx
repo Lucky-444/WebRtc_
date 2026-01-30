@@ -14,7 +14,7 @@ const Room: React.FC = () => {
     //anyone is added the server that new People hasbeen added to this Meeting
 
      if(user) socket.emit("joined-room", { roomId: id , peerId : user._id });
-  }, [id , user]);
+  }, [id , user , socket]);
 
   return <div>room : ${id}</div>;
 };

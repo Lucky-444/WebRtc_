@@ -27,7 +27,16 @@ const SocketProvider: React.FC<props> = ({ children }) => {
   //State Variable to store the UserId
   const [user , setUser] = useState<Peer>();
 
-
+  const fetchParticpantsList = ({
+    roomId,
+    particpants,
+  }: {
+    roomId: string;
+    particpants: string[];
+  }) => {
+    console.log("Feteched from room");
+    console.log(roomId, particpants);
+  };
 
 
 
@@ -54,6 +63,8 @@ const SocketProvider: React.FC<props> = ({ children }) => {
     
     //We will transfer the user to the room Page when we Collect the an Event room created From Server
     socket.on("room-created" , enterRoom);
+
+    socket.on("get-users" , fetchParticpantsList)
   }, [])
 
 
