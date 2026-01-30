@@ -1,2 +1,2 @@
-run By -> npm run dev
+run By -> npm start
 
