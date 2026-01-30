@@ -1,5 +1,6 @@
 import SocketIoClient from "socket.io-client";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const wsServer = "http://localhost:8080";
 
@@ -15,6 +16,17 @@ interface props {
 };
 
 const SocketProvider: React.FC<props> = ({ children }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const enterRoom = ({roomId} : {roomId : string}) => {
+      navigate(`/room/${roomId}`)
+    }
+    
+    //We will transfer the user to the room Page when we Collect the an Event room created From Server
+    socket.on("room-created" , enterRoom);
+  }, [])
+
+
   return (
     <socketContext.Provider value={socket}>
       {children}
