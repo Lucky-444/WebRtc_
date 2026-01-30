@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { socketContext } from "../Context/SocketContext";
+import UserFeedPlayer from "../Components/userFeedPlayer";
 
 const Room: React.FC = () => {
   const { id } = useParams();
   console.log(id);
 
-  const { socket , user } = useContext(socketContext);
+  const { socket , user , stream} = useContext(socketContext);
   console.log(socket);
 
   useEffect(() => {
@@ -16,6 +17,12 @@ const Room: React.FC = () => {
      if(user) socket.emit("joined-room", { roomId: id , peerId : user._id });
   }, [id , user , socket]);
 
-  return <div>room : ${id}</div>;
+  return (
+    <div>
+      room : {id} 
+
+      <UserFeedPlayer stream={stream} />
+    </div>
+  )
 };
 export default Room;

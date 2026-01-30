@@ -62,7 +62,7 @@ const SocketProvider: React.FC<props> = ({ children }) => {
   }, []);
 
   return (
-    <socketContext.Provider value={{ socket, user }}>
+    <socketContext.Provider value={{ socket, user , stream}}>
       {children}
     </socketContext.Provider>
   );
