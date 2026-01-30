@@ -1,9 +1,13 @@
-import CreateRoom from "./Components/CreateRoom";
+import { Route, Routes } from "react-router-dom";
+
+import Home from "./Pages/Home";
 
 const App = () => {
   return (
     <>
-      <CreateRoom />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
     </>
   );
 };

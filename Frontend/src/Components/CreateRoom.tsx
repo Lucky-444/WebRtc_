@@ -10,11 +10,11 @@ const CreateRoom: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-10">
+
       <button onClick={initRoom} className="btn btn-primary btn-wide shadow-lg">
         🎥 Start a Meeting
       </button>
-    </div>
+   
   );
 };
 
