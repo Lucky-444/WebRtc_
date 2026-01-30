@@ -9,8 +9,8 @@ const roomHandler = (socket: Socket) => {
     console.log("Room Created With Id :", roomId);
   };
 
-  const joinedroom = ({roomId} : {roomId : string}) => {
-    console.log(`New User Has Been Joined ${roomId} Room`);
+  const joinedroom = ({roomId , peerId} : {roomId : string , peerId : string}) => {
+    console.log(`New User Has Been Joined ${roomId} Room With ${peerId} PeerId`);
   };
 
   // when we call the above functions
